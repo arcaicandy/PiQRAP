@@ -1,6 +1,6 @@
 # PiQRAP - A Raspberry Pi QR code controlled audio player.
 
-<img src="[https://github.com/arcaicandy/PiQRAP/tree/master/documentation/assets/PiQRAP.jpg](https://github.com/arcaicandy/PiQRAP/tree/master/documentation/assets/PiQRAP.jpg)" alt="An image of the PiQRAP QR code controlled music player" width="250"/> <img src="[https://github.com/arcaicandy/PiQRAP/tree/master/documentation/assets/example-qr-cards.jpg](https://github.com/arcaicandy/PiQRAP/tree/master/documentation/assets/PiQRAP.jpg)" alt="An image of the QR cards producsed by PiQRAP" width="300"/>
+<img src="https://github.com/arcaicandy/PiQRAP/tree/master/documentation/assets/PiQRAP.jpg" alt="An image of the PiQRAP QR code controlled music player" width="250"> <img src="https://github.com/arcaicandy/PiQRAP/tree/master/documentation/assets/example-qr-cards.jpg" alt="An image of the QR cards producsed by PiQRAP" width="300">
 
 ## Introduction
 
