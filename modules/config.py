@@ -1,3 +1,4 @@
+# PiQRAP Copyright (C) 2021 Andy Jones - teardrop@zen.co.uk
 #!/usr/bin/env python3
 import os.path
 import yaml

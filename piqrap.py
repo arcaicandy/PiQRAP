@@ -1,3 +1,4 @@
+# PiQRAP Copyright (C) 2021 Andy Jones - teardrop@zen.co.uk
 #!/usr/bin/env python3
 from pathlib import Path
 from time import sleep
@@ -117,6 +118,7 @@ else:
     logger.addHandler(logging.NullHandler())
 
 logger.info("PiQRAP starting....")
+logger.info("PiQRAP Copyright (C) 2021 Andy Jones - teardrop@zen.co.uk")
 
 # Catch CTRL C
 signal.signal(signal.SIGINT, signal_handler)
