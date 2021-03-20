@@ -90,6 +90,11 @@ My recommended build would be approx £105.00 (USB sound card, external speakers
 
 Of course much of these costs can be reduced if you already have parts and can reuse them or your use case doesn't require them.
 
+## Alternatives
+
+[Juuke](https://ananords.com/juuke-a-rfid-music-player-for-elderly-and-kids/) - Arduino RFID based audio player - Original inspiration for PiQRAP. Much higher barrier to entry.
+[Phoniebox](http://phoniebox.de/index.html) - Very complete looking Raspberry PI 3 RFID based audio player. Typically only found the the day I did this readme. Ho hum.
+
 ## Work in progress
 
 Build headless, read only image to allow faster startup and safe power off without OS shutdown.
