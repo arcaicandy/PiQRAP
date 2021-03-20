@@ -1,6 +1,8 @@
 # PiQRAP - A Raspberry Pi QR code controlled audio player.
 
-# Introduction
+<img src="[https://github.com/arcaicandy/PiQRAP/tree/master/documentation/assets/PiQRAP.jpg](https://github.com/arcaicandy/PiQRAP/tree/master/documentation/assets/PiQRAP.jpg)" alt="An image of the PiQRAP QR code controlled music player" width="250"/> <img src="[https://github.com/arcaicandy/PiQRAP/tree/master/documentation/assets/example-qr-cards.jpg](https://github.com/arcaicandy/PiQRAP/tree/master/documentation/assets/PiQRAP.jpg)" alt="An image of the QR cards producsed by PiQRAP" width="300"/>
+
+## Introduction
 
 Initiated by a [request](https://www.facebook.com/groups/RaspberryPiProjects/permalink/1810841379091256) by Dave Taylor on the Facebook group [Raspberry Pi Projects](https://www.facebook.com/groups/RaspberryPiProjects).
 
@@ -12,9 +14,15 @@ It's cool but I thought the barrier of entry for many people would be too high (
 
 I suggested to Dave I would try to do something and eventually have come up with PiQRAP.
 
+## See it in action
+
+[A short demonstration video on YouTube](https://youtu.be/FiyGeKrGX2s)
+
 ## What is it?
 
 PiQRAP is an audio/mp3 player that allows the user to control the playback of music stored on an external USB Stick using QRCards.
+
+It is written in Python and uses the OMXPlayer to play audio.
 
 You add your music to folders on a USB Stick (these can be individual albums or folders with multiple albums or folders with whatever collection of MP3 files you want). You then insert the stick in the Raspberry Pi and turn it on.
 

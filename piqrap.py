@@ -55,7 +55,9 @@ def qrDataReceived(qrData):
     global indexMediaFolder
     global requestSwitchMediaFolder
     global requestPlayNext
+    global requestPlayPrevious
     global requestPlayOrPause
+    global requestShuffle
 
     logger.debug("QR received: " + qrData)
 
@@ -65,7 +67,7 @@ def qrDataReceived(qrData):
 
         requestSwitchMediaFolder = True
 
-    elif qrData == 'PREV':
+    elif qrData == 'SHUF':
 
         requestShuffle = True
 
