@@ -1,0 +1,10 @@
+# outputDevice
+# alsa:hw,0,0   - Default output device for Raspberry Pi can be either HDMI or Line out depending on Pi config
+# alsa:dmixer   - Allows mixing of sound outputs for use on harware like USB sound cards - Requires additional config - See documentation/dmixer
+outputDevice: 'alsa:hw:0,0'
+
+# debug : true/false  - If false then no logging will be perfomed. This is used when the system is setup as a read only device.
+debug: false
+
+# shufle : true /false - Shuffle tracks in playlist when play list changed
+shuffle: false

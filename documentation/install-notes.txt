@@ -1,0 +1,13 @@
+Install Raspberry PI OS Lite
+sudo apt-get update
+sudo apt full-upgrade
+Setup SAMBA
+Install PIP3
+Install QRcode python library (allows creation of QR Codes)
+  pip3 install qrcode[pil]
+Install open CV
+  https://www.hackster.io/gatoninja236/scan-qr-codes-in-real-time-with-raspberry-pi-a5268b
+    sudo apt-get install python3-opencv
+    sudo apt-get install libqt4-test python3-sip python3-pyqt5 libqtgui4 libjasper-dev libatlas-base-dev -y
+    pip3 install opencv-contrib-python==4.1.0.25
+    sudo modprobe bcm2835-v4l2
