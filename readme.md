@@ -38,10 +38,10 @@ It is most likely of use for anyone who has issue/difficulties with managing and
 
 ### Music/player functions
 
-Play/Pause
-Skip track forward/backward
-Change music folder
-Shuffle music folder
+* Play/Pause
+* Skip track forward/backward
+* Change music folder
+* Shuffle music folder
 
 ### Other
 
@@ -88,11 +88,11 @@ Approximate/indicative costs are below. These are in UK Pounds as of 20th March 
 So a minimal required build cost is approx £85.00
 My recommended build would be approx £105.00 (USB sound card, external speakers)
 
-Of course much of these costs can be reduced if you already have parts and can reuse them or your use case doesnt require them.
+Of course much of these costs can be reduced if you already have parts and can reuse them or your use case doesn't require them.
 
 ## Work in progress
 
-Build headless, readonly image to allow faster startup and safe power off without OS shutdown.
+Build headless, read only image to allow faster startup and safe power off without OS shutdown.
 Build instructions, dependancies etc...
 
 ## Future plans
