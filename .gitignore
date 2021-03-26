@@ -1,4 +1,13 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
 test/
+.unotes/
+
 piqrap.log
 documentation/todo.txt
-.unotes/

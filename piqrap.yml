@@ -7,4 +7,4 @@ outputDevice: 'alsa:hw:0,0'
 debug: false
 
 # shufle : true /false - Shuffle tracks in playlist when play list changed
-shuffle: false
+shuffle: true
