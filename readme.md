@@ -95,10 +95,15 @@ Of course much of these costs can be reduced if you already have parts and can r
 * [Juuke](https://ananords.com/juuke-a-rfid-music-player-for-elderly-and-kids/) - Arduino RFID based audio player - Original inspiration for PiQRAP. Much higher barrier to entry.
 * [Phoniebox](http://phoniebox.de/index.html) - Very complete looking Raspberry PI 3 RFID based audio player. Typically only found the the day I did this readme. Ho hum.
 
+## Building a Working PiQRAP
+
+Please look int the Github repository under documentation. Here you will find a file called build-instructions.md
+
+build-instructions.md has all the info required to build a working PiQRAP system from scratch, how to setup your Pi, how to install the software, how to configure and run PiQRAP and how to create the QRCArds used to control PiQRAP.
+
 ## Work in progress
 
 Build headless, read only image to allow faster startup and safe power off without OS shutdown.
-Build instructions, dependancies etc...
 
 ## Future plans
 
