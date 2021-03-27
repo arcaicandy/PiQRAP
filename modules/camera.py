@@ -9,8 +9,9 @@ import threading
 import cv2
 import pyzbar.pyzbar as pyzbar
 
-from modules.events import Events
+from pyzbar.pyzbar import ZBarSymbol
 
+from modules.events import Events
 from modules.mediaPlayerSingle import Player
 from modules.media import MediaFile, PlayList
 
@@ -64,7 +65,7 @@ class Camera(threading.Thread):
             _, img = self.camera.read()
 
             # Decode any qr codes if we can
-            objects = pyzbar.decode(img)
+            objects = pyzbar.decode(img, symbols=[ZBarSymbol.QRCODE])
 
             qrData = None
 

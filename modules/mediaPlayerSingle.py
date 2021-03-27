@@ -64,7 +64,9 @@ class Player:
             self.player.quit()
 
         self.playList = playList.asList()
-        
+
+        logger.debug("Playlist has " + str(len(self.playList)) + " files")
+
         self.currentMediaFile = 0
 
         # Create the player
