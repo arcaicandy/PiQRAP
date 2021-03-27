@@ -67,7 +67,7 @@ Start a terminal window by clicking on the right most icon on menu bar on the de
 
 In the termninal window that opened enter the following command at the command prompt...
 
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP $</span> $ raspistill -o Desktop/image.jpg
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ raspistill -o Desktop/image.jpg
 
 You should see a preview displayed on the desktop for 5 seconds and then a picture will be taken and saved to your Desktop.
 
@@ -77,20 +77,20 @@ Double click image.jpg on the Desktop to see your image.
 
 In your terminal window (open another if you closed the first) enter the following command...
 
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP $</span> $ pwd
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ pwd
 
 The output should be '/home/pi'
 
 If it's not then close the terminal window and open another.
 If it is then enter the following command...
 
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP $</span> $ git clone [https://github.com/arcaicandy/PiQRAP.git](https://github.com/arcaicandy/PiQRAP.git)
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ git clone [https://github.com/arcaicandy/PiQRAP.git](https://github.com/arcaicandy/PiQRAP.git)
 
 If all is successful then you should now have a folder called PiQRAP in your home directory.
 
 You can check this by entering the following command...
 
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP $</span> $ ls
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ ls
 
 You should see the PiQRAP folder listed among the others.
 
@@ -100,7 +100,7 @@ Now we need to add all the support files and components that PiQRAP needs to fun
 
 Simply enter the following command and all should be done for you...
 
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP $</span> ./PiQRAP/build.sh
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ ./PiQRAP/build.sh
 
 ### 7\. Prepare Your USB Stick
 
