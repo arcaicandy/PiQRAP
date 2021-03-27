@@ -191,7 +191,7 @@ To do this edit the /etc/asound.confg file and change it to use the correct hard
 Now you are ready to run PiQRAP. Make sure you speakers/headphones are on and your USB Stick plugged in.
 Open a terminal window and enter the following commands...
 
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ cd PiQRAP
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ cd PiQRAP<br>
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ python3 piqrap.py
 
 PyQRAP should start and you should hear 'Scanning Music Folder' followed a shortwhile after by 'Player ready"
