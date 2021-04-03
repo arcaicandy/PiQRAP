@@ -1,10 +1,28 @@
 # outputDevice
-# alsa:hw,0,0   - Default output device for Raspberry Pi can be either HDMI or Line out depending on Pi config
-# alsa:dmixer   - Allows mixing of sound outputs for use on harware like USB sound cards - Requires additional config - See documentation/dmixer
-outputDevice: 'alsa:hw:0,0'
+# Controls the audio output device that PiQRAP uses to output audio.
+# alsa:hw,0,0   - Default output device for Raspberry Pi can be either HDMI or Line out depending on Pi config
+# alsa:dmixer   - Allows mixing of sound outputs for use on harware like USB sound cards - Requires additional config - See documentation/dmixer
 
-# debug : true/false  - If false then no logging will be perfomed. This is used when the system is setup as a read only device.
+outputDevice: 'alsa:hw,0,0'
+
+# debug
+# true/false  - If false then no logging will be perfomed. This is used when the system is setup as a read only device.
+
 debug: false
 
-# shufle : true /false - Shuffle tracks in playlist when play list changed
-shuffle: true
+# logLevel:
+# INFO/DEBUG - Controls the amount of logging if debug is set true - If things arent working then setdebug to true and logLevel to DEBUG
+
+logLevel: INFO
+
+# shuffle 
+# true /false - Shuffle tracks in playlist when play list changed. Otherwise tracks are played in order they were found
+
+shuffle: false
+
+# rebuildqrcards
+# If True PiQRAP will rebuild the QRCards on any USB drive found everytime it starts. If you have made lots of changes to the playlists on the USB drive then this will rebuild everything.
+# If false PiQRAP will still created QRCards for any new playlist folders found but wont touch those it has done before.
+# This would normally be set false in the /boot/piqrap.yml and overridden in the piqrap.yml file in the Music folder on your USB drive if required.
+
+rebuildqrcards: false
