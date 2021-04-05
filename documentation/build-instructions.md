@@ -1,4 +1,4 @@
-# PiQRAP - Build instructions
+# PiQRAP - Build Instructions
 
 ## Requirements
 
@@ -43,7 +43,7 @@ Size can be whatever you need for your music upto the limits supported by the Mo
 
 ### 1\. Burn the Raspberry Pi OS \(32 bit\) image
 
-This guide uses the version of Raspberry Pi OS with the desktop windowing/GUI system installed. It's not neccessary to use the GUI and for most applications once PiQRAP is configured you won't use it at all but it does make the setup process easier. It also helps with debugging if you have issues.
+This guide uses the version of Raspberry Pi OS with the desktop windowing/GUI system installed (Raspberry Pi OS with desktop). It's not neccessary to use the GUI and for most applications once PiQRAP is configured you won't use it at all but it does make the setup process easier. It also helps with debugging if you have issues.
 
 It is recommended you use the [Raspberry Pi Imager](https://www.raspberrypi.org/software/) available from the [Raspberry Pi Foundation website](https://www.raspberrypi.org/).
 
