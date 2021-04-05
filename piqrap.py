@@ -227,6 +227,13 @@ while quit == False:
 
         requestVolumeUp = True
 
+    # H
+    elif key == 104:
+
+        logger.debug("Keypress - Play/Pause")
+
+        requestPlayOrPause = True
+
     # Process requests from key presses or QR Event
     if requestSwitchMediaFolder:
 
