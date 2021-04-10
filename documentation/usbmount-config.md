@@ -22,7 +22,7 @@ $ sudo apt install usbmount -y
 
 We need to change some of the options that the USBMount service is setup with...
 
-$ sudo nano /lib/systemd/system/systemd-udevd.service
+pi@PiQRAP:\~/PiQRAP $ sudo nano /lib/systemd/system/systemd-udevd.service
 
 Find the options below, in the [Service] section and change the values or add them if they don't exist...
 
@@ -35,7 +35,7 @@ MountFlags=shared
 
 We need to add some options to the USBMount config file...
 
-$ sudo nano /etc/usbmount/usbmount.conf
+pi@PiQRAP:\~/PiQRAP $ sudo nano /etc/usbmount/usbmount.conf
 
 Find the following option and change as below...
 
@@ -47,8 +47,8 @@ FS_MOUNTOPTIONS="-fstype=vfat,umask=0000"
 
 We need to make sure PiQRAP can see any mounted USB drive under /media/pi so we create a symbolic link that allows this...
 
-$ sudo mkdir /media/pi
-$ sudo ln -s /media/usb /media/pi/usb
+pi@PiQRAP:\~/PiQRAP $ sudo mkdir /media/pi
+pi@PiQRAP:\~/PiQRAP $ sudo ln -s /media/usb /media/pi/usb
 
 Now reboot.
 
@@ -58,4 +58,4 @@ Once you have rebooted the Pi you can plug a USB Drive or stick into one of the 
 
 If you then enter the following command you should see the contents of the drive...
 
-$ ls /media/pi/usb
+pi@PiQRAP:\~/PiQRAP $ ls /media/pi/usb
