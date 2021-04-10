@@ -97,7 +97,7 @@ Edit the file /etc/bash.bashrc and add the following lines at the end...
 `}`\
 `alias ro='sudo mount -o remount,ro / ; sudo mount -o remount,ro /boot'`\
 `alias rw='sudo mount -o remount,rw / ; sudo mount -o remount,rw /boot'`\
-`PROMPT_COMMAND=set_bash_prompt`\
+`PROMPT_COMMAND=set_bash_prompt`
 
 ### Ensure File System is Returned to read-only on Log Out
 

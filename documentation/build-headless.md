@@ -43,7 +43,7 @@ When asked to reboot/restart say yes.
 We need to make sure that all the packages we have and will istall are the latest versions so enter the following commands at the command prompt...
 
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> sudo apt-get update -y\
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> sudo apt full-upgrade -y\
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> sudo apt full-upgrade -y
 
 ### 5\. Test the Camera
 
