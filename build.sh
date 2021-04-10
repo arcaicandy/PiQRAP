@@ -2,16 +2,16 @@
 # Install commands
 
 # Install various required packages
-sudo apt install python3-pip
-sudo apt install libzbar0
-sudo apt install omxplayer
-sudo apt install fonts-piboto
+sudo apt install python3-pip -y
+sudo apt install libzbar0 -y
+sudo apt install omxplayer -y
+sudo apt install fonts-piboto -y
 
 # Install Open CV
 sudo apt-get install python3-opencv -y
 sudo apt-get install libqt4-test python3-sip python3-pyqt5 libqtgui4 libjasper-dev libatlas-base-dev -y
 pip3 install opencv-contrib-python==4.1.0.25
-sudo modprobe bcm2835-v4l2
+sudo modprobe bcm2835-v4l2 -y
 
 # Install QRcode python library (allows creation of QR Codes)
 pip3 install qrcode[pil] --no-warn-script-location

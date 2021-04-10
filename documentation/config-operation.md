@@ -13,7 +13,6 @@ This effectively allows you to set your default options (in the /boot/piqrap.yml
 ### Available Configuration Options
 
 The default state of the /boot/piqrap.yml is as follows...
-<br>
 ```
 # outputDevice
 # Controls the audio output device that PiQRAP uses to output audio.
@@ -57,7 +56,6 @@ Holding one of these cards up to the Pi's camera will switch playback to the pla
 ### Control QRCards
 
 PiQRAP generates 4 QRCards that allow control of music playback.
-<br>
 * PLAY/PAUSE - Pauses the current track if it is playing or restarts playback if it is paused.
 * PREVIOUS - Skip playback to the start of the track or if within two seconds of the start skips to the previous track.
 * NEXT - Skips playback to the next track

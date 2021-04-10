@@ -19,16 +19,20 @@ Note: You can set the Raspberry Pi up as a headless PiQRAP without ever connecti
 This 'headless' guide uses the version of Raspberry Pi OS with no desktop windowing/GUI system installed (Raspberry Pi OS Lite).
 
 It is recommended you use the [Raspberry Pi Imager](https://www.raspberrypi.org/software/) available from the [Raspberry Pi Foundation website](https://www.raspberrypi.org/).
+If you use the Raspberry Pi Imager then when you run it click 'Choose OS', select 'Raspberry Pi OS (Other) then choose 'Raspberry Pi OS Lite'.
+
+Note: The latest versions of the imager will let you you setup networking and SSH from the imager itself so no having to connect via a monitor/keyboard initially.
 
 Follow the [Installing Operating System Images Guide](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) from the Raspberry Pi Foundation.
 
 ### 2\. First Boot
 
 Put your newly imaged SD-Card in your Raspberry Pi and power it up. You should eventually get the logon prompt on your monitor if you have one connected.
+If you don't have a monitor and keyboard connected then attempt to try to ssh to the Pi (Google for details on how to do this if required).
 
 ### 3\. Configuration Options and Enabling Camera Support
 
-Use the raspi-config utility to setup any options/configuration choices you want for your Pi (Networking, SSH etc..).
+Use the raspi-config utility to setup remaining options/configuration choices required for PiQRAP.
 
 From the command line prompt enter the following...
 
@@ -40,20 +44,25 @@ When asked to reboot/restart say yes.
 
 ### 4\. Update the OS \(Raspberry Pi OS Lite\)
 
-We need to make sure that all the packages we have and will istall are the latest versions so enter the following commands at the command prompt...
+We need to make sure that all the packages we have and will install are the latest versions so enter the following commands at the command prompt...
 
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> sudo apt-get update -y\
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> sudo apt-get update -y
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> sudo apt full-upgrade -y
+
+Wait.... wait.... wait... Reboot.
 
 ### 5\. Test the Camera
 
-If you have a monitor attached to your Pi then from the command prompt enter the following commands:
+We'll just make sure the camera is working before we go any further...
 
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo apt-get -y install fbi -y\
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ raspistill -o image.jpg\
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ raspistill -o image.jpg
+
+If you have a monitor and keyboard attached to your Pi (ie not using SSH) then from the command prompt enter the following commands:
+
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo apt-get -y install fbi -y
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ fbi -a image.jpg
 
-If you dont have a monitor attached then then you can still do the 'raspistill' to grab an image but you will need to copy the image.jpg file from the Raspberry Pi to another machine to view it (beyond scope of this document).
+If you don't have a monitor and keyboard attached then then you can still do the 'raspistill' to grab an image but you will need to copy the image.jpg file from the Raspberry Pi to another machine to view it (beyond scope of this document).
 
 ### 6\. Install USBMount
 

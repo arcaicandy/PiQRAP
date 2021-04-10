@@ -8,20 +8,20 @@ Standard Raspberry PI 4. Any memory size will be fine but no advantage or reason
 
 ### Raspberry Pi 4 PSU
 
-Doesnt have to be the official PSU but recommend that it is. Don't cheap out on the PSU the Pi4 can be extremely picky about power and uses a fair bit more than the Pi3.
+Doesn't have to be the official PSU but recommend that it is. Don't cheap out on the PSU the Pi4 can be extremely picky about power and uses a fair bit more than the Pi3.
 If you are going to try to use USB speakers then be aware you might have power issues.
 
 ### Camera Module
 
-PiQRAP uses the offical Raspberry Pi Camera. Others may/should work but are not supported.
+PiQRAP uses the official Raspberry Pi Camera. Others may/should work but are not supported.
 
-### HDMI Monitor and cable (micro HDMI for RPI4)
+### HDMI Monitor and Cable (Micro HDMI for RPI4)
 
-Anything should be ok but often isn't. I can't really guide you on this but I have had older HDMI monitors that the Pi just will not recognise and use or have wierd display issues. It can be a nightmare.
+Anything should be ok but often isn't. I can't really guide you on this but I have had older HDMI monitors that the Pi just will not recognise and use or have weird display issues. It can be a nightmare.
 If you have problems then try another monitor or cable or both.
 If you are buying cables get official ones or from a specialist Pi store.
 
-### USB Mouse and keyboard
+### USB Mouse and Keyboard
 
 Anything should be ok.
 
@@ -32,18 +32,18 @@ If you are using speakers then be aware that using USB speakers powered through 
 
 ### SD-Card
 
-The SD-Card size should be 8Mb or greater but doesnt need to be as music is not stored on the card itelf. It's best to get the fastest type of card you can. Not neccessary but the faster it is the faster the player will start up and the faster performing these instructions will be.
+The SD-Card size should be 8Mb or greater but doesn't need to be as music is not stored on the card itself. It's best to get the fastest type of card you can. Not necessary but the faster it is the faster the player will start up and the faster performing these instructions will be.
 
 ### USB Stick
 
 The music that PiQRAP plays needs to be on a USB Stick inserted in one of the USB sockets of the Raspberry Pi.
-Size can be whatever you need for your music upto the limits supported by the Module of Pi you are using.
+Size can be whatever you need for your music up to the limits supported by the Module of Pi you are using.
 
 ## Setting up the Raspberry Pi OS
 
 ### 1\. Burn the Raspberry Pi OS \(32 bit\) Image
 
-This guide uses the version of Raspberry Pi OS with the desktop windowing/GUI system installed (Raspberry Pi OS with desktop). It's not neccessary to use the GUI and for most applications once PiQRAP is configured you won't use it at all but it does make the setup process easier. It also helps with debugging if you have issues.
+This guide uses the version of Raspberry Pi OS with the desktop windowing/GUI system installed (Raspberry Pi OS with desktop). It's not necessary to use the GUI and for most applications once PiQRAP is configured you won't use it at all but it does make the setup process easier. It also helps with debugging if you have issues.
 
 It is recommended you use the [Raspberry Pi Imager](https://www.raspberrypi.org/software/) available from the [Raspberry Pi Foundation website](https://www.raspberrypi.org/).
 
@@ -52,7 +52,7 @@ Follow the [Installing Operating System Images Guide](https://www.raspberrypi.or
 ### 2\. First Boot
 
 Put your newly imaged SD-Card in your Raspberry Pi and power it up. You should get the desktop displayed on your monitor.
-The desktop has a wizard that will talk you through connecting your Pi to your Wifi. Follow it all the way through, let it update software and then restart.
+The desktop has a wizard that will talk you through connecting your Pi to your Wi-Fi. Follow it all the way through, let it update software and then restart.
 
 ### 3\. Enable Camera Support
 
@@ -65,7 +65,7 @@ When asked to reboot/restart say yes.
 
 Start a terminal window by clicking on the right most icon on menu bar on the desktop. The icon looks like '>\_'
 
-In the termninal window that opened enter the following command at the command prompt...
+In the terminal window that opened enter the following command at the command prompt...
 
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ raspistill -o Desktop/image.jpg
 
@@ -96,13 +96,15 @@ You can check this by entering the following command...
 
 You should see the PiQRAP folder listed among the others.
 
-### 2\. Setup PiQRAP Components and Dependancies
+### 2\. Setup PiQRAP Components and Dependencies
 
 Now we need to add all the support files and components that PiQRAP needs to function.
 
 Simply enter the following command and all should be done for you...
 
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ ./PiQRAP/build.sh
+
+This can take a while depending on how fast the Raspberry Pi repository is responding.
 
 ### 3\. Prepare Your USB Stick
 
@@ -123,52 +125,59 @@ You can see what audio devices your Raspberry Pi has by entering the following c
 
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ aplay -l
 
-\*\*\*\* List of PLAYBACK Hardware Devices \*\*\*\*
-card 0: b1 [bcm2835 HDMI 1], device 0: bcm2835 HDMI 1 [bcm2835 HDMI 1]\
-  Subdevices: 4/4\
-  Subdevice #0: subdevice #0\
-  Subdevice #1: subdevice #1\
-  Subdevice #2: subdevice #2\
-  Subdevice #3: subdevice #3\
-card 1: Headphones [bcm2835 Headphones], device 0: bcm2835 Headphones [bcm2835 Headphones]\
-  Subdevices: 4/4\
-  Subdevice #0: subdevice #0\
-  Subdevice #1: subdevice #1\
-  Subdevice #2: subdevice #2\
-  Subdevice #3: subdevice #3\
+```
+**** List of PLAYBACK Hardware Devices ****
+card 0: b1 [bcm2835 HDMI 1], device 0: bcm2835 HDMI 1 [bcm2835 HDMI 1]
+  Subdevices: 4/4
+  Subdevice #0: subdevice #0
+  Subdevice #1: subdevice #1
+  Subdevice #2: subdevice #2
+  Subdevice #3: subdevice #3
+card 1: Headphones [bcm2835 Headphones], device 0: bcm2835 Headphones [bcm2835 Headphones]
+  Subdevices: 4/4
+  Subdevice #0: subdevice #0
+  Subdevice #1: subdevice #1
+  Subdevice #2: subdevice #2
+  Subdevice #3: subdevice #3
 card 2: Device [USB Audio Device], device 0: USB Audio [USB Audio]\
-  Subdevices: 1/1\
-  Subdevice #0: subdevice #0\
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
 
 The output from 'aplay -l' (on my Raspberry Pi) shows 3 devices. HDMI (card 0), Headphones (card 1) and a USB Soundcard (card 3).
 
 So in the above scenario the available alsa sound devices are...
 
-alsa:hw:0,0  -  The HDMI output - If you have something connected via HDMI then this device will exist\
-alsa:hw:1,0  -  The Line Out of the Pi - All should have this\
+```
+alsa:hw:0,0  -  The HDMI output - If you have something connected via HDMI then this device will exist
+alsa:hw:1,0  -  The Line Out of the Pi - All should have this
 alsa:hw:2,0  -  The USB sound card attached to the Raspberry Pi
+```
 
-However if I disconnect my HDMI monitor and reboot the Pi I get the follwing output from 'aplay -l'
+However if I disconnect my HDMI monitor and reboot the Pi I get the following output from 'aplay -l'
 
-\*\*\*\* List of PLAYBACK Hardware Devices \*\*\*\*
-card 0: Headphones [bcm2835 Headphones], device 0: bcm2835 Headphones [bcm2835 Headphones]\
-  Subdevices: 8/8\
-  Subdevice #0: subdevice #0\
-  Subdevice #1: subdevice #1\
-  Subdevice #2: subdevice #2\
-  Subdevice #3: subdevice #3\
-  Subdevice #4: subdevice #4\
-  Subdevice #5: subdevice #5\
-  Subdevice #6: subdevice #6\
-  Subdevice #7: subdevice #7\
-card 1: Device [USB Audio Device], device 0: USB Audio [USB Audio]\
-  Subdevices: 1/1\
+```
+**** List of PLAYBACK Hardware Devices ****
+card 0: Headphones [bcm2835 Headphones], device 0: bcm2835 Headphones [bcm2835 Headphones]
+  Subdevices: 8/8
   Subdevice #0: subdevice #0
+  Subdevice #1: subdevice #1
+  Subdevice #2: subdevice #2
+  Subdevice #3: subdevice #3
+  Subdevice #4: subdevice #4
+  Subdevice #5: subdevice #5
+  Subdevice #6: subdevice #6
+  Subdevice #7: subdevice #7
+card 1: Device [USB Audio Device], device 0: USB Audio [USB Audio]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
 
-Notice that the HDMI card which was card 0 has dissapeared (not surprising as its been unplugged) but this means the other two cards have now shifted down to become card 0 and card 1.
+Notice that the HDMI card which was card 0 has disappeared (not surprising as its been unplugged) but this means the other two cards have now shifted down to become card 0 and card 1.
+
 If you had setup PiQRAP to use the USB sound card (Card 2, alsa:hw:2,0) it now no longer exists as it has moved to card 1. Doh!
 
-The bottom line is to initaily use alsa:hw:0,0 and this should be either the Raspberry Pi line out or the HDMI out. Seeing if you are getting sound via one of these should let you confirm that PiQRAP is working.
+The bottom line is to initially use alsa:hw:0,0 and this should be either the Raspberry Pi line out or the HDMI out. Seeing if you are getting sound via one of these should let you confirm that PiQRAP is working.
 once you have confirmed that PiQRAP is working you can then try other devices always remembering that removing and HDMI cable or USB sound card can change any remaining output device card numbers and screw up PiQRAP.
 
 #### Setting PiQRAPs Output Device
@@ -185,28 +194,34 @@ From a terminal window enter the following command...
 
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ alsamixer
 
-Guides and inforamtion on how to use alsamixer are available on the internet but its not very complex. Basically select the output device you want to change the volume for and then change the volume up and down.
+Guides and information on how to use alsamixer are available on the internet but its not very complex. Basically select the output device you want to change the volume for and then change the volume up and down.
 
 #### Notes on USB Sound Cards
 
 My testing has found that (cheap???) USB sound cards only allow one sound to play through them at a time. This is a problem for PiQRAP as it can sometime try to play more than one sounds at a time.
+
 This was solved by using an asound mixer called dmixer.
+
 When PiQRAP is installed it copies a file to /etc/asound.confg which contains the dmixer definition.
+
 The problem is I dont know where your USB sound card will appear in the device list so you may need to edit /etc/asound.conf to make sure its using the correct hardware.
 
-To do this edit the /etc/asound.confg file and change it to use the correct hardware device. Instructions are in the file. Use the following command...
+To do this edit the /etc/asound.confg file and change it to use the correct hardware device. Instructions are in the file.
+
+Use the following command...
 
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo nano /etc/asound.conf
 
 ### 5\. Run PiQRAP \(First run\)
 
 Now you are ready to run PiQRAP. Make sure you speakers/headphones are on and your USB Stick plugged in.
+
 Open a terminal window and enter the following commands...
 
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ cd PiQRAP\
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ cd PiQRAP
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ python3 piqrap.py
 
-PyQRAP should start and you should hear 'Scanning Music Folder' followed a shortwhile after by 'Player ready"
+PyQRAP should start and you should hear 'Scanning Music Folder' followed a short while after by 'Player ready".
 
 At this point you will be stuck. You have no way to tell PiQRAP what to do. Luckily PiQRAP when it starts up and scans the 'music' folder on the USB Stick will create another folder on the stick called 'QRCards'. Read on.
 
@@ -220,5 +235,5 @@ Once you have printed your QRCards then make sure the USB drive is back in the P
 
 ### 7\. Notes
 
-* Camera orientation - I have found having the camera looking horizontal is best. It is sensitive to changes in background lighting so if its seeing a bright light and you then hold a card in front the image darkens and it takes a while fo the camera to settle and see the QR Code.
+* Camera orientation - I have found having the camera looking horizontal is best. It is sensitive to changes in background lighting so if its seeing a bright light and you then hold a card in front the image darkens and it takes a while for the camera to settle and see the QR Code.
 * Sound hardware issues - Discussed above. Please read it.
