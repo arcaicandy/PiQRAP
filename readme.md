@@ -101,10 +101,6 @@ Please look int the Github repository under documentation. Here you will find a 
 
 build-instructions.md has all the info required to build a working PiQRAP system from scratch, how to setup your Pi, how to install the software, how to configure and run PiQRAP and how to create the QRCArds used to control PiQRAP.
 
-## Work in progress
-
-Build headless, read only image to allow faster startup and safe power off without OS shutdown.
-
 ## Future plans
 
 RFID control

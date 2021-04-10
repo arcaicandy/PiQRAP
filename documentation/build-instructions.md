@@ -41,7 +41,7 @@ Size can be whatever you need for your music upto the limits supported by the Mo
 
 ## Setting up the Raspberry Pi OS
 
-### 1\. Burn the Raspberry Pi OS \(32 bit\) image
+### 1\. Burn the Raspberry Pi OS \(32 bit\) Image
 
 This guide uses the version of Raspberry Pi OS with the desktop windowing/GUI system installed (Raspberry Pi OS with desktop). It's not neccessary to use the GUI and for most applications once PiQRAP is configured you won't use it at all but it does make the setup process easier. It also helps with debugging if you have issues.
 
@@ -73,7 +73,9 @@ You should see a preview displayed on the desktop for 5 seconds and then a pictu
 
 Double click image.jpg on the Desktop to see your image.
 
-### 5\. Download the Latest PiQRAP Software
+## Install and Configure PiQRAP
+
+### 1\. Download the Latest PiQRAP Software
 
 In your terminal window (open another if you closed the first) enter the following command...
 
@@ -94,7 +96,7 @@ You can check this by entering the following command...
 
 You should see the PiQRAP folder listed among the others.
 
-### 6\. Setup PiQRAP Components and Dependancies
+### 2\. Setup PiQRAP Components and Dependancies
 
 Now we need to add all the support files and components that PiQRAP needs to function.
 
@@ -102,14 +104,14 @@ Simply enter the following command and all should be done for you...
 
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ ./PiQRAP/build.sh
 
-### 7\. Prepare Your USB Stick
+### 3\. Prepare Your USB Stick
 
 PiQRAP searches for music in the 'music' folder of any USB stick that is inserted in one of the Raspberry Pis USB sockets.
 
 Place all your folders of music in a folder called 'music' in the root of your USB Stick. At present PiQRAP only looks for MP3 files. You can do this on the Raspberry Pi itself or on any other PC or Mac.
 In each folder you added under the 'music' folder you can also place a JPG image called 'Folder.jpg'. PiQRAP will use this image when creating the QRCards used to control the play back of your music.
 
-### 8\. Setup Sound Output
+### 4\. Setup Sound Output
 
 Possibly the most error prone part of the process so have patience.
 
@@ -117,7 +119,7 @@ PiQRAP uses the ALSA sound system in Linux to play the music. More accurately it
 
 Devices used by the ALSA system are referenced by the order in which they are found by the Pi which has the annoying habit in that the devices can change depending on what you have plugged in and where.
 
-You can see what audio devices your Raspberry Pi has by entering the follwing command...
+You can see what audio devices your Raspberry Pi has by entering the following command...
 
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ aplay -l
 
@@ -196,7 +198,7 @@ To do this edit the /etc/asound.confg file and change it to use the correct hard
 
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo nano /etc/asound.conf
 
-### 9\. Run PiQRAP \(First run\)
+### 5\. Run PiQRAP \(First run\)
 
 Now you are ready to run PiQRAP. Make sure you speakers/headphones are on and your USB Stick plugged in.
 Open a terminal window and enter the following commands...
@@ -208,7 +210,7 @@ PyQRAP should start and you should hear 'Scanning Music Folder' followed a short
 
 At this point you will be stuck. You have no way to tell PiQRAP what to do. Luckily PiQRAP when it starts up and scans the 'music' folder on the USB Stick will create another folder on the stick called 'QRCards'. Read on.
 
-### 10\. QRCards
+### 6\. QRCards
 
 After starting PiQRAP at least once, in the 'QRCards' folder on the USB Stick, you will find the control cards you need to control play back and a card for each folder you added along with an image from the Folder.jpg file you added to each.
 
@@ -216,7 +218,7 @@ At this point you can shutdown the Pi and place the USB Stick in whatever comput
 
 Once you have printed your QRCards then make sure the USB drive is back in the Pi and start it up again and test you cards.
 
-### 11\. Notes
+### 7\. Notes
 
 * Camera orientation - I have found having the camera looking horizontal is best. It is sensitive to changes in background lighting so if its seeing a bright light and you then hold a card in front the image darkens and it takes a while fo the camera to settle and see the QR Code.
 * Sound hardware issues - Discussed above. Please read it.

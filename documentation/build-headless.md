@@ -1,8 +1,8 @@
 # PiQRAP - Headless Build Instructions
 
-## Introducton
+## Introduction
 
-This file describes how to build a version of PiQRAP that does not have any monitor/graphical desktop connected while in use. It also shows how to configure PiQRAP so that the OS SD-Card is set as read only so you can just turn PiQRAP off when you are done without risking corruption of the file system. This also should extend the life of the OS SD-Card greatly.
+This file describes how to build a version of PiQRAP that does not have any monitor/graphical desktop connected while in use.
 
 ## Requirements
 
@@ -63,7 +63,9 @@ To do this we use a package called USBMount.
 
 Please refer to the file usbmount-config.md in the documentation directory for instructions on how to do this.
 
-### 7\. Download the Latest PiQRAP Software
+## Install and Configure PiQRAP
+
+### 1\. Download the Latest PiQRAP Software
 
 At the command prompt enter the following command...
 
@@ -85,81 +87,26 @@ You can check this by entering the following command...
 
 You should see the PiQRAP folder listed among the others.
 
-### 8\. Setup PiQRAP Components and Dependancies
+### 2\. Setup PiQRAP Components and Dependancies
 
-Now we need to add all the support files and components that PiQRAP needs to function.
+Please refer to section 2 of 'Install and Configure PiQRAP' in build-instructions.md.
 
-Simply enter the following command and all should be done for you...
+### 3\. Prepare Your USB Stick
 
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ ./PiQRAP/build.sh
+Please refer to section 3 of 'Install and Configure PiQRAP' in build-instructions.md.
 
-### 9\. Make Raspberry Pi OS Lite Readonly
-<br>
-From - [https://medium.com/swlh/make-your-raspberry-pi-file-system-read-only-raspbian-buster-](https://medium.com/swlh/make-your-raspberry-pi-file-system-read-only-raspbian-buster-c558694de79) by andreas.schallwig
+### 4\. Setup Sound Output
 
-sudo apt-get remove --purge triggerhappy logrotate dphys-swapfile
-sudo apt-get autoremove --purge
+Please refer to section 4 of 'Install and Configure PiQRAP' in build-instructions.md.
 
-Edit the file /boot/cmdline.txt and add the following three words at the end of the line:
-    fastboot noswap ro
+### 5\. Run PiQRAP \(First run\)
 
-Replace your log manager
-sudo apt-get install busybox-syslogd
-sudo apt-get remove --purge rsyslog
+Please refer to section 5 of 'Install and Configure PiQRAP' in build-instructions.md.
 
-Update the file /etc/fstab and add the ,ro flag to all block devices. The updated file should look like this:
-proc                  /proc     proc    defaults             0     0
-PARTUUID=fb0d460e-01  /boot     vfat    defaults,ro          0     2
-PARTUUID=fb0d460e-02  /         ext4    defaults,noatime,ro  0     1
-Also add the entries for the temporary file system at the end of the file:
-tmpfs        /tmp            tmpfs   nosuid,nodev         0       0
-tmpfs        /var/log        tmpfs   nosuid,nodev         0       0
-tmpfs        /var/tmp        tmpfs   nosuid,nodev         0       0
+### 6\. QRCards
 
-Move some system files to temp filesystem
-sudo rm -rf /var/lib/dhcp /var/lib/dhcpcd5 /var/spool /etc/resolv.conf
-sudo ln -s /tmp /var/lib/dhcp
-sudo ln -s /tmp /var/lib/dhcpcd5
-sudo ln -s /tmp /var/spool
-sudo touch /tmp/dhcpcd.resolv.conf
-sudo ln -s /tmp/dhcpcd.resolv.conf /etc/resolv.conf
+Please refer to section 6 of Install and Configure PiQRAP' in build-instructions.md.
 
-Update the systemd random seed
-Link the random-seed file to the tmpfs location:
-$ sudo rm /var/lib/systemd/random-seed
-$ sudo ln -s /tmp/random-seed /var/lib/systemd/random-seed
+### 7\. Notes
 
-Edit the service configuration file /lib/systemd/system/systemd-random-seed.service to have the file created on boot.
-Add the line ExecStartPre=/bin/echo "" >/tmp/random-seed under the [Service] section.
-
-The modified [Service] section should look like this:
-[Service]
-Type=oneshot
-RemainAfterExit=yes
-ExecStartPre=/bin/echo "" >/tmp/random-seed
-ExecStart=/lib/systemd/systemd-random-seed load
-ExecStop=/lib/systemd/systemd-random-seed save
-TimeoutSec=30s
-
-Adding some useful commands to switch between RO and RW modes
-Here we create two shell commands ro (read-only) and rw (read-write) which can be used at any time to switch between the modes. In addition it will add an indicator to your command prompt to show the current mode.
-Edit the file /etc/bash.bashrc and add the following lines at the end:
-set\_bash\_prompt() {
-    fs\_mode=$\(mount \| sed \-n \-e "s/^\\/dev\\/\.\* on \\/ \.\*\(\\\(r\[w\|o\]\\\)\.\*/\1/p"\)
-    PS1='\\[\033[01;32m\\]\u@\h${fs\_mode:+($fs\_mode)}\\[\033[00m\\]:\\[\033[01;34m\\]\w\\[\033[00m\\]\\$ '
-}
-alias ro='sudo mount -o remount,ro / ; sudo mount -o remount,ro /boot'
-alias rw='sudo mount -o remount,rw / ; sudo mount -o remount,rw /boot'
-PROMPT\_COMMAND=set\_bash\_prompt
-
-<br>
-Finally ensure the file system goes back to read-only once you log out.
-Edit (or create) the file /etc/bash.bash\_logout and add the following lines at the end:
-mount -o remount,ro /
-mount -o remount,ro /boot
-
-\# Make sure /tmp folder is writable by anyone
-sudo chmod uga+rwx /tmp
-
-<br>
-<br>
+Please refer to section 7 of 'Install and Configure PiQRAP' in build-instructions.md.
