@@ -9,8 +9,8 @@ PiQRAP doesn't require this to run but having the Pi OS set read only has the fo
 * It increases the reliability of the OS SD-Card as when in operation the Pi will no longer be writing to it.
 
 ### 1\. Remove Unnecessary Packages
-pi@PiQRAP:~/PiQRAP $ sudo apt-get remove --purge triggerhappy logrotate dphys-swapfile
-pi@PiQRAP:~/PiQRAP $ sudo apt-get autoremove --purge
+pi@PiQRAP:~/PiQRAP $ sudo apt-get remove --purge triggerhappy logrotate dphys-swapfile -y
+pi@PiQRAP:~/PiQRAP $ sudo apt-get autoremove --purge -y
 
 ### 2\. Disable swap and filesystem check and set it to read\-only
 
@@ -26,8 +26,8 @@ fastboot noswap ro
 
 ### 3\. Replace the Log Manager
 
-pi@PiQRAP:~/PiQRAP $ sudo apt-get install busybox-syslogd
-pi@PiQRAP:~/PiQRAP $ sudo apt-get remove --purge rsyslog
+pi@PiQRAP:~/PiQRAP $ sudo apt-get install busybox-syslogd -y
+pi@PiQRAP:~/PiQRAP $ sudo apt-get remove --purge rsyslog -y
 
 Make the file-systems read-only and add the temporary storage
 
@@ -97,7 +97,7 @@ Here we create two shell commands ro (read-only) and rw (read-write) which can b
 
 Edit the file /etc/bash.bashrc and add the following lines at the end...
 
-pi@PiQRAP:~/PiQRAP $ sudo nano /etc/bash.bashrc
+pi@PiQRAP:~/PiQRAP $ sudo nano /etc/bash.bashrc
 
 ```
 set_bash_prompt() {
@@ -124,11 +124,7 @@ mount -o remount,ro /
 mount -o remount,ro /boot
 ```
 
-### 9\. Make Sure /tmp Folder is Writable by Anyone
-
-pi@PiQRAP:~/PiQRAP $ sudo chmod uga+rwx /tmp
-
-### 10\. Reboot
+### 9\. Reboot
 
 All done now so we can reboot and the Pi should boot up as normal.
 
