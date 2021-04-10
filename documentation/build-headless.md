@@ -119,3 +119,22 @@ Please refer to section 6 of Install and Configure PiQRAP' in build-instructions
 ### 7\. Notes
 
 Please refer to section 7 of 'Install and Configure PiQRAP' in build-instructions.md.
+
+### 8. Automatically Running PiQRAP on Boot
+
+If you are running PiQRAP headless then you need it to startup after boot when you turn your Rapsberry Pi on.
+
+Edit the .bashRC file in the home/pi folder...
+
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo nano /home/pi/.bashrc
+
+Add the following line as the last line in the file...
+
+```
+/home/pi/PiQRAP/piqrap.sh
+```
+
+Set the files permission so it can be executed...
+
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo chmod uga+rwx /home/pi/PiQRAP/piqrap.sh
+
