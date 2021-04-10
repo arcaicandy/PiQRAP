@@ -10,6 +10,7 @@ PiQRAP doesn't require this to run but having the Pi OS set read only has the fo
 
 ### 1\. Remove Unnecessary Packages
 pi@PiQRAP:~/PiQRAP $ sudo apt-get remove --purge triggerhappy logrotate dphys-swapfile -y
+
 pi@PiQRAP:~/PiQRAP $ sudo apt-get autoremove --purge -y
 
 ### 2\. Disable swap and filesystem check and set it to read\-only
@@ -27,6 +28,7 @@ fastboot noswap ro
 ### 3\. Replace the Log Manager
 
 pi@PiQRAP:~/PiQRAP $ sudo apt-get install busybox-syslogd -y
+
 pi@PiQRAP:~/PiQRAP $ sudo apt-get remove --purge rsyslog -y
 
 Make the file-systems read-only and add the temporary storage
@@ -54,10 +56,15 @@ tmpfs        /var/tmp        tmpfs   nosuid,nodev       �
 ### 4\. Move Various System Files to the Temp Filesystem
 
 pi@PiQRAP:~/PiQRAP $ sudo rm -rf /var/lib/dhcp /var/lib/dhcpcd5 /var/spool /etc/resolv.conf
+
 pi@PiQRAP:~/PiQRAP $ sudo ln -s /tmp /var/lib/dhcp
+
 pi@PiQRAP:~/PiQRAP $ sudo ln -s /tmp /var/lib/dhcpcd5
+
 pi@PiQRAP:~/PiQRAP $ sudo ln -s /tmp /var/spool
+
 pi@PiQRAP:~/PiQRAP $ sudo touch /tmp/dhcpcd.resolv.conf
+
 pi@PiQRAP:~/PiQRAP $ sudo ln -s /tmp/dhcpcd.resolv.conf /etc/resolv.conf
 
 ### 5\. Update the systemd Random Seed
@@ -65,6 +72,7 @@ pi@PiQRAP:~/PiQRAP $ sudo ln -s /tmp/dhcpcd.resolv.conf /etc/resolv.conf
 Link the random-seed file to the tmpfs location:
 
 pi@PiQRAP:~/PiQRAP $ sudo rm /var/lib/systemd/random-seed
+
 pi@PiQRAP:~/PiQRAP $ sudo ln -s /tmp/random-seed /var/lib/systemd/random-seed
 
 ### 6\. Make Sure the random\-seed File is Created on Boot\.
