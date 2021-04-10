@@ -4,3 +4,4 @@ if [[ $(tty) == "/dev/tty1" ]]; then
     sudo chmod uga+rwx /tmp
     cd /home/pi/PiQRAP
     python3 piqrap.py
+fi
