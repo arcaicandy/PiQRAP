@@ -11,7 +11,7 @@ PiQRAP doesn't require this to run but having the Pi OS set read only has the fo
 
 ### 1\. Remove Unneccessary Packages\.\.\.
 <br>
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo apt-get remove --purge triggerhappy logrotate dphys-swapfile
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo apt-get remove --purge triggerhappy logrotate dphys-swapfile\
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo apt-get autoremove --purge
 
 ### 2\. Disable swap and filesystem check and set it to read\-only
@@ -26,7 +26,7 @@ Add the following three words at the end of the line:
 
 ### 3\. Replace the Log Manager
 <br>
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo apt-get install busybox-syslogd
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo apt-get install busybox-syslogd\
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo apt-get remove --purge rsyslog
 
 Make the file-systems read-only and add the temporary storage
@@ -37,30 +37,30 @@ Add the ,ro flag to all block devices.
 
 The updated file should look like this:
 
-`proc                  /proc     proc    defaults             0     0`
-`PARTUUID=fb0d460e-01  /boot     vfat    defaults,ro          0     2`
+`proc                  /proc     proc    defaults             0     0`\
+`PARTUUID=fb0d460e-01  /boot     vfat    defaults,ro          0     2`\
 `PARTUUID=fb0d460e-02  /         ext4    defaults,noatime,ro  0     1`
 
 Also add the entries for the temporary file system at the end of the file:
 
-`tmpfs        /tmp            tmpfs   nosuid,nodev         0       0`
-`tmpfs        /var/log        tmpfs   nosuid,nodev         0       0`
+`tmpfs        /tmp            tmpfs   nosuid,nodev         0       0`\
+`tmpfs        /var/log        tmpfs   nosuid,nodev         0       0`\
 `tmpfs        /var/tmp        tmpfs   nosuid,nodev         0       0`
 
 ### 4\. Move Various System Files to the Temp Filesystem
 <br>
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo rm -rf /var/lib/dhcp /var/lib/dhcpcd5 /var/spool /etc/resolv.conf
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo ln -s /tmp /var/lib/dhcp
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo ln -s /tmp /var/lib/dhcpcd5
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo ln -s /tmp /var/spool
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo touch /tmp/dhcpcd.resolv.conf
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo rm -rf /var/lib/dhcp /var/lib/dhcpcd5 /var/spool /etc/resolv.conf\
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo ln -s /tmp /var/lib/dhcp\
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo ln -s /tmp /var/lib/dhcpcd5\
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo ln -s /tmp /var/spool\
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo touch /tmp/dhcpcd.resolv.conf\
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo ln -s /tmp/dhcpcd.resolv.conf /etc/resolv.conf
 
 ### 5\. Update the systemd Random Seed
 
 Link the random-seed file to the tmpfs location:
 
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo rm /var/lib/systemd/random-seed
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo rm /var/lib/systemd/random-seed\
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo ln -s /tmp/random-seed /var/lib/systemd/random-seed
 
 ### 6\. Make Sure the random\-seed File is Created on Boot\.
@@ -75,12 +75,12 @@ Under the [Service] section add the following line...
 
 The modified [Service] section should look like this...
 
-`[Service]`
-`Type=oneshot`
-`RemainAfterExit=yes`
-`ExecStartPre=/bin/echo "" >/tmp/random-seed`
-`ExecStart=/lib/systemd/systemd-random-seed load`
-`ExecStop=/lib/systemd/systemd-random-seed save`
+`[Service]`\
+`Type=oneshot`\
+`RemainAfterExit=yes`\
+`ExecStartPre=/bin/echo "" >/tmp/random-seed`\
+`ExecStart=/lib/systemd/systemd-random-seed load`\
+`ExecStop=/lib/systemd/systemd-random-seed save`\
 `TimeoutSec=30s`
 
 ### 7\. Add Shell Commands
@@ -91,13 +91,13 @@ Edit the file /etc/bash.bashrc and add the following lines at the end...
 
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo nano /etc/bash.bashrc
 
-`set_bash_prompt() {`
-`    fs_mode=$(mount | sed -n -e "s/^\/dev\/.* on \/ .*(\(r[w|o]\).*/\1/p")`
-`    PS1='\[\033[01;32m\]\u@\h${fs_mode:+($fs_mode)}\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '`
-`}`
-`alias ro='sudo mount -o remount,ro / ; sudo mount -o remount,ro /boot'`
-`alias rw='sudo mount -o remount,rw / ; sudo mount -o remount,rw /boot'`
-`PROMPT_COMMAND=set_bash_prompt`
+`set_bash_prompt() {`\
+`    fs_mode=$(mount | sed -n -e "s/^\/dev\/.* on \/ .*(\(r[w|o]\).*/\1/p")`\
+`    PS1='\[\033[01;32m\]\u@\h${fs_mode:+($fs_mode)}\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '`\
+`}`\
+`alias ro='sudo mount -o remount,ro / ; sudo mount -o remount,ro /boot'`\
+`alias rw='sudo mount -o remount,rw / ; sudo mount -o remount,rw /boot'`\
+`PROMPT_COMMAND=set_bash_prompt`\
 
 ### Ensure File System is Returned to read-only on Log Out
 
@@ -109,7 +109,7 @@ Edit the file /etc/bash.bash\_logout...
 
 Add the following lines at the end...
 
-`mount -o remount,ro /`
+`mount -o remount,ro /`\
 `mount -o remount,ro /boot`
 
 ### 8\. Make Sure /tmp Folder is Writable by Anyone

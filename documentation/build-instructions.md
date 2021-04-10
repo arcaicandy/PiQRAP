@@ -124,45 +124,45 @@ You can see what audio devices your Raspberry Pi has by entering the following c
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ aplay -l
 
 \*\*\*\* List of PLAYBACK Hardware Devices \*\*\*\*
-card 0: b1 [bcm2835 HDMI 1], device 0: bcm2835 HDMI 1 [bcm2835 HDMI 1]
-  Subdevices: 4/4
-  Subdevice #0: subdevice #0
-  Subdevice #1: subdevice #1
-  Subdevice #2: subdevice #2
-  Subdevice #3: subdevice #3
-card 1: Headphones [bcm2835 Headphones], device 0: bcm2835 Headphones [bcm2835 Headphones]
-  Subdevices: 4/4
-  Subdevice #0: subdevice #0
-  Subdevice #1: subdevice #1
-  Subdevice #2: subdevice #2
-  Subdevice #3: subdevice #3
-card 2: Device [USB Audio Device], device 0: USB Audio [USB Audio]
-  Subdevices: 1/1
-  Subdevice #0: subdevice #0
+card 0: b1 [bcm2835 HDMI 1], device 0: bcm2835 HDMI 1 [bcm2835 HDMI 1]\
+  Subdevices: 4/4\
+  Subdevice #0: subdevice #0\
+  Subdevice #1: subdevice #1\
+  Subdevice #2: subdevice #2\
+  Subdevice #3: subdevice #3\
+card 1: Headphones [bcm2835 Headphones], device 0: bcm2835 Headphones [bcm2835 Headphones]\
+  Subdevices: 4/4\
+  Subdevice #0: subdevice #0\
+  Subdevice #1: subdevice #1\
+  Subdevice #2: subdevice #2\
+  Subdevice #3: subdevice #3\
+card 2: Device [USB Audio Device], device 0: USB Audio [USB Audio]\
+  Subdevices: 1/1\
+  Subdevice #0: subdevice #0\
 
 The output from 'aplay -l' (on my Raspberry Pi) shows 3 devices. HDMI (card 0), Headphones (card 1) and a USB Soundcard (card 3).
 
 So in the above scenario the available alsa sound devices are...
 
-alsa:hw:0,0  -  The HDMI output - If you have something connected via HDMI then this device will exist
-alsa:hw:1,0  -  The Line Out of the Pi - All should have this
+alsa:hw:0,0  -  The HDMI output - If you have something connected via HDMI then this device will exist\
+alsa:hw:1,0  -  The Line Out of the Pi - All should have this\
 alsa:hw:2,0  -  The USB sound card attached to the Raspberry Pi
 
 However if I disconnect my HDMI monitor and reboot the Pi I get the follwing output from 'aplay -l'
 
 \*\*\*\* List of PLAYBACK Hardware Devices \*\*\*\*
-card 0: Headphones [bcm2835 Headphones], device 0: bcm2835 Headphones [bcm2835 Headphones]
-  Subdevices: 8/8
-  Subdevice #0: subdevice #0
-  Subdevice #1: subdevice #1
-  Subdevice #2: subdevice #2
-  Subdevice #3: subdevice #3
-  Subdevice #4: subdevice #4
-  Subdevice #5: subdevice #5
-  Subdevice #6: subdevice #6
-  Subdevice #7: subdevice #7
-card 1: Device [USB Audio Device], device 0: USB Audio [USB Audio]
-  Subdevices: 1/1
+card 0: Headphones [bcm2835 Headphones], device 0: bcm2835 Headphones [bcm2835 Headphones]\
+  Subdevices: 8/8\
+  Subdevice #0: subdevice #0\
+  Subdevice #1: subdevice #1\
+  Subdevice #2: subdevice #2\
+  Subdevice #3: subdevice #3\
+  Subdevice #4: subdevice #4\
+  Subdevice #5: subdevice #5\
+  Subdevice #6: subdevice #6\
+  Subdevice #7: subdevice #7\
+card 1: Device [USB Audio Device], device 0: USB Audio [USB Audio]\
+  Subdevices: 1/1\
   Subdevice #0: subdevice #0
 
 Notice that the HDMI card which was card 0 has dissapeared (not surprising as its been unplugged) but this means the other two cards have now shifted down to become card 0 and card 1.
@@ -203,7 +203,7 @@ To do this edit the /etc/asound.confg file and change it to use the correct hard
 Now you are ready to run PiQRAP. Make sure you speakers/headphones are on and your USB Stick plugged in.
 Open a terminal window and enter the following commands...
 
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ cd PiQRAP
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ cd PiQRAP\
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ python3 piqrap.py
 
 PyQRAP should start and you should hear 'Scanning Music Folder' followed a shortwhile after by 'Player ready"
