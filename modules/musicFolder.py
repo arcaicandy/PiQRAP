@@ -4,6 +4,7 @@ import os
 import os.path
 import yaml
 import logging
+import time
 
 from os import scandir
 
@@ -27,6 +28,9 @@ class MusicFolder:
 
         logger.info("Looking for music folder")
 
+        # Record current time
+        nowMillisecs = int(round(time.time() * 1000))
+
         # Search the /media/pi folder for 'music' folders
         for folder in [f.path for f in os.scandir('/media/pi') if f.is_dir()]:
 
@@ -49,6 +53,10 @@ class MusicFolder:
         else:
 
             logger.warning("No music folder found")
+
+        # Only return after at least enough time has passed to play the 'starting scanning' audio
+        while (nowMillisecs + 1500) > int(round(time.time() * 1000)):
+            time.sleep(.1)
 
     def hasMusicFolder(self):
 
