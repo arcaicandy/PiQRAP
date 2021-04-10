@@ -133,8 +133,3 @@ Add the following line as the last line in the file...
 ```
 /home/pi/PiQRAP/piqrap.sh
 ```
-
-Set the files permission so it can be executed...
-
-<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo chmod uga+rwx /home/pi/PiQRAP/piqrap.sh
-
