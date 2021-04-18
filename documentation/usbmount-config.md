@@ -10,6 +10,8 @@ You DO NOT need this if you are using PiQRAP with the Desktop running.
 
 These instructions have only been tested on the Lite versions of Raspberry Pi OS.
 
+Any USB stick or USB drive must be formatted as FAT32. NTFS does not work.
+
 ## Installing USBMount
 
 ### 1\. Install the USBmount package
@@ -46,10 +48,10 @@ FS_MOUNTOPTIONS="-fstype=vfat,umask=0000"
 ### 3\. Create Symbolic Link
 
 We need to make sure PiQRAP can see any mounted USB drive under /media/pi so we create a symbolic link that allows this...
-
+'''
 pi@PiQRAP:\~/PiQRAP $ sudo mkdir /media/pi
 pi@PiQRAP:\~/PiQRAP $ sudo ln -s /media/usb /media/pi/usb
-
+'''
 Now reboot.
 
 ## Test USBMount
