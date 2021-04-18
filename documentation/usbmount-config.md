@@ -47,7 +47,7 @@ FS_MOUNTOPTIONS="-fstype=vfat,umask=0000"
 
 ### 3\. Create Symbolic Link
 
-We need to make sure PiQRAP can see any mounted USB drive under /media/pi so we create a symbolic link that allows this...
+We need to make sure PiQRAP can see any mounted USB drive under /media/pi so we create a folder and a symbolic link that allows this...
 
 pi@PiQRAP:\~/PiQRAP $ sudo mkdir /media/pi
 
