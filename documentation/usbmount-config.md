@@ -49,10 +49,10 @@ FS_MOUNTOPTIONS="-fstype=vfat,umask=0000"
 
 We need to make sure PiQRAP can see any mounted USB drive under /media/pi so we create a symbolic link that allows this...
 
-```
 pi@PiQRAP:\~/PiQRAP $ sudo mkdir /media/pi
+
 pi@PiQRAP:\~/PiQRAP $ sudo ln -s /media/usb /media/pi/usb
-```
+
 Now reboot.
 
 ## Test USBMount
