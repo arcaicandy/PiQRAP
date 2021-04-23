@@ -128,7 +128,7 @@ Please refer to section 7 of 'Install and Configure PiQRAP' in build-instruction
 
 If you are running PiQRAP headless then you need it to startup after boot when you turn your Rapsberry Pi on.
 
-There are two stesp to this. First making the Pi login automatically and second running PiQRAP when it logs in.
+There are two steps to this. First making the Pi login automatically and second running PiQRAP when it logs in.
 
 Edit the .bashRC file in the home/pi folder...
 
