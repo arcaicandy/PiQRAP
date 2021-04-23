@@ -47,6 +47,7 @@ When asked to reboot/restart say yes.
 We need to make sure that all the packages we have and will install are the latest versions so enter the following commands at the command prompt...
 
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> sudo apt-get update -y
+
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> sudo apt full-upgrade -y
 
 Wait.... wait.... wait... Reboot.
@@ -60,6 +61,7 @@ We'll just make sure the camera is working before we go any further...
 If you have a monitor and keyboard attached to your Pi (ie not using SSH) then from the command prompt enter the following commands:
 
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo apt-get -y install fbi -y
+
 <span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ fbi -a image.jpg
 
 If you don't have a monitor and keyboard attached then then you can still do the 'raspistill' to grab an image but you will need to copy the image.jpg file from the Raspberry Pi to another machine to view it (beyond scope of this document).
@@ -71,6 +73,8 @@ Unlike the Raspberry Pi OS Desktop OS version the 'Lite' version of Raspberry Pi
 To do this we use a package called USBMount.
 
 Please refer to the file usbmount-config.md in the documentation directory for instructions on how to do this.
+
+Note: Any USB Pen, Stick or drive must be formated using FAT32 and not NTFS.
 
 ## Install and Configure PiQRAP
 
@@ -120,9 +124,11 @@ Please refer to section 6 of Install and Configure PiQRAP' in build-instructions
 
 Please refer to section 7 of 'Install and Configure PiQRAP' in build-instructions.md.
 
-### 8. Automatically Running PiQRAP on Boot
+### 8\. Automatically Running PiQRAP on Boot
 
 If you are running PiQRAP headless then you need it to startup after boot when you turn your Rapsberry Pi on.
+
+There are two stesp to this. First making the Pi login automatically and second running PiQRAP when it logs in.
 
 Edit the .bashRC file in the home/pi folder...
 
@@ -133,3 +139,22 @@ Add the following line as the last line in the file...
 ```
 /home/pi/PiQRAP/piqrap.sh
 ```
+
+This will automatically run PiQRAP when the Pi user logs in. It will only run if you log on from the Pi console (tty1) so you can still login using SSH and not automatically run PiQRAP.
+
+Now the final step. Make the Pi login automatically.
+
+Run raspi-config...
+
+<span class="colour" style="color:rgb(0, 255, 0)">pi@PiQRAP</span>:<span class="colour" style="color:rgb(102, 119, 255)">\~/PiQRAP</span> $ sudo raspi-config
+
+Select 'System options' -> 'Boot / Auto Login' -> Console Autologin
+
+Reboot and the Pi should bootup, login and run PiQRAP.
+
+### 9\. Extra Credit
+
+Look in the documentation folder for the following...
+<br>
+* build-read-only - Instructions on making the OS SD-Card readonly. Lengthens life of card and power off without shutdown
+* build-fastboot - Instructions on speeding up the boot time of the Pi. Boots to 'Player read' in approx 22 seconds (Pi 4).
